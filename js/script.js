@@ -4,6 +4,8 @@ const ADMIN_USUARIO = typeof ADMIN_CONFIG !== "undefined" ? ADMIN_CONFIG.usuario
 const ADMIN_SENHA = typeof ADMIN_CONFIG !== "undefined" ? ADMIN_CONFIG.senha : "";
 const STORAGE_PROJETOS = "projetos:v2";
 const STORAGE_SESSAO = "adminLogado";
+const STORAGE_METRICAS = "metricas:v1";
+const STORAGE_CLIQUES = "cliques:v1";
 
 const IMAGEM_PLACEHOLDER =
   "data:image/svg+xml;utf8," +
@@ -51,6 +53,30 @@ let projetos = carregarProjetos();
 let logado = localStorage.getItem(STORAGE_SESSAO) === "true";
 let imagemAtual = null;
 
+function lerJson(chave, padrao) {
+  try {
+    return JSON.parse(localStorage.getItem(chave)) ?? padrao;
+  } catch {
+    return padrao;
+  }
+}
+
+function contarVisita() {
+  if (sessionStorage.getItem("visitaContada")) return;
+  const m = lerJson(STORAGE_METRICAS, { visitas: 0 });
+  m.visitas++;
+  localStorage.setItem(STORAGE_METRICAS, JSON.stringify(m));
+  sessionStorage.setItem("visitaContada", "1");
+}
+
+function registrarClique(id) {
+  const cliques = lerJson(STORAGE_CLIQUES, {});
+  cliques[id] = (cliques[id] || 0) + 1;
+  localStorage.setItem(STORAGE_CLIQUES, JSON.stringify(cliques));
+}
+
+contarVisita();
+
 const listaEl = document.getElementById("lista-projetos");
 const btnAdmin = document.getElementById("btn-admin");
 const btnNovo = document.getElementById("btn-novo-projeto");
@@ -74,6 +100,11 @@ function salvarNoStorage() {
 }
 
 function renderizarProjetos() {
+  const cliques = lerJson(STORAGE_CLIQUES, {});
+  const idMaisVisto = Object.entries(cliques)
+    .filter(([, n]) => n > 0)
+    .sort((a, b) => b[1] - a[1])[0]?.[0];
+
   listaEl.innerHTML = projetos
     .map((p) => {
       const adminBotoes = logado
@@ -87,19 +118,24 @@ function renderizarProjetos() {
           </button>
         </div>`
         : "";
+      const seloMaisVisto =
+        p.id === idMaisVisto
+          ? '<span class="badge badge-skill mb-2"><i class="bi bi-star-fill me-1"></i>Mais visto</span>'
+          : "";
       return `
       <div class="col-md-6 col-lg-4">
         <div class="card h-100 shadow-sm">
           <img src="${p.imagem || IMAGEM_PLACEHOLDER}" class="card-img-top" alt="Capa do projeto ${escaparHtml(p.titulo)}" loading="lazy" decoding="async">
           <div class="card-body d-flex flex-column">
+            ${seloMaisVisto}
             <h5 class="card-title">${escaparHtml(p.titulo)}</h5>
             <p class="card-text flex-grow-1">${escaparHtml(p.descricao)}</p>
             <div class="mb-3">
               ${(p.tecnologias || []).map((t) => `<span class="badge badge-skill me-1">${escaparHtml(t)}</span>`).join("")}
             </div>
             <div class="d-flex gap-2 mb-2">
-              ${p.repositorio ? `<a href="${p.repositorio}" class="btn btn-outline-dark btn-sm" target="_blank" rel="noopener"><i class="bi bi-github me-1"></i>Repositório</a>` : ""}
-              ${p.demo ? `<a href="${p.demo}" class="btn btn-primary btn-sm" target="_blank" rel="noopener"><i class="bi bi-box-arrow-up-right me-1"></i>Demo</a>` : ""}
+              ${p.repositorio ? `<a href="${p.repositorio}" class="btn btn-outline-dark btn-sm" target="_blank" rel="noopener" data-clique="${p.id}"><i class="bi bi-github me-1"></i>Repositório</a>` : ""}
+              ${p.demo ? `<a href="${p.demo}" class="btn btn-primary btn-sm" target="_blank" rel="noopener" data-clique="${p.id}"><i class="bi bi-box-arrow-up-right me-1"></i>Demo</a>` : ""}
             </div>
             ${adminBotoes}
           </div>
@@ -112,18 +148,47 @@ function renderizarProjetos() {
 listaEl.addEventListener("click", (e) => {
   const botaoEditar = e.target.closest("[data-editar]");
   const botaoExcluir = e.target.closest("[data-excluir]");
+  const linkProjeto = e.target.closest("[data-clique]");
   if (botaoEditar) abrirFormularioEdicao(botaoEditar.dataset.editar);
   if (botaoExcluir) excluirProjeto(botaoExcluir.dataset.excluir);
+  if (linkProjeto) registrarClique(linkProjeto.dataset.clique);
 });
 
 function atualizarInterfaceAuth() {
   btnNovo.classList.toggle("d-none", !logado);
+  document.getElementById("btn-metricas").classList.toggle("d-none", !logado);
   btnAdmin.innerHTML = logado
     ? '<i class="bi bi-unlock-fill me-1"></i>Sair'
     : '<i class="bi bi-lock-fill me-1"></i>Admin';
   renderizarProjetos();
   renderizarComentarios();
 }
+
+const metricasModal = new bootstrap.Modal("#metricasModal");
+document.getElementById("btn-metricas").addEventListener("click", () => {
+  const cliques = lerJson(STORAGE_CLIQUES, {});
+  const visitas = lerJson(STORAGE_METRICAS, { visitas: 0 });
+  const totalCliques = Object.values(cliques).reduce((soma, n) => soma + n, 0);
+
+  document.getElementById("metrica-visitas").textContent = visitas.visitas;
+  document.getElementById("metrica-cliques").textContent = totalCliques;
+
+  const ranking = projetos
+    .map((p) => ({ titulo: p.titulo, cliques: cliques[p.id] || 0 }))
+    .sort((a, b) => b.cliques - a.cliques);
+
+  document.getElementById("ranking-projetos").innerHTML = ranking
+    .map(
+      (r, i) => `
+      <li class="list-group-item d-flex justify-content-between align-items-center ${i === 0 && r.cliques > 0 ? "fw-bold" : ""}">
+        <span>${escaparHtml(r.titulo)} ${i === 0 && r.cliques > 0 ? '<span class="badge badge-skill ms-2"><i class="bi bi-star-fill me-1"></i>Mais visto</span>' : ""}</span>
+        <span class="badge badge-skill-outline rounded-pill">${r.cliques} clique${r.cliques === 1 ? "" : "s"}</span>
+      </li>`
+    )
+    .join("");
+
+  metricasModal.show();
+});
 
 btnAdmin.addEventListener("click", () => {
   if (logado) {

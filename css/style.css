@@ -137,6 +137,22 @@ body {
   --bs-btn-active-border-color: var(--primary-color);
 }
 
+.btn-accent {
+  --bs-btn-color: var(--dark-color);
+  --bs-btn-bg: var(--accent-color);
+  --bs-btn-border-color: var(--accent-color);
+  --bs-btn-hover-color: var(--white-color);
+  --bs-btn-hover-bg: var(--primary-color);
+  --bs-btn-hover-border-color: var(--primary-color);
+  --bs-btn-active-color: var(--white-color);
+  --bs-btn-active-bg: var(--primary-color);
+  --bs-btn-active-border-color: var(--primary-color);
+  --bs-btn-disabled-color: var(--dark-color);
+  --bs-btn-disabled-bg: var(--accent-color);
+  --bs-btn-disabled-border-color: var(--accent-color);
+  font-weight: 600;
+}
+
 .section-title {
   position: relative;
   font-weight: 700;
