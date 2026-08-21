@@ -4,6 +4,10 @@
 João Vitor Souza da Silva
 GU3080889
 
+### Link Projeto
+https://portfoliojoaovitorsouza.vercel.app/
+https://github.com/joaovitorsouza007/portfolio
+
 ### Nome provisório
 Portfolio pessoal
 ### Problema
