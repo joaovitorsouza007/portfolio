@@ -1,0 +1,195 @@
+:root {
+  --dark-color: #1a1e29;
+  --primary-color: #132de4;
+  --accent-color: #01c38e;
+  --white-color: #ffffff;
+  --light-bg: #fafbfc;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+.bg-dark {
+  background-color: var(--dark-color) !important;
+}
+
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+.text-accent {
+  color: var(--accent-color) !important;
+}
+
+#hero {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background:
+    linear-gradient(rgba(26, 30, 41, 0.78), rgba(26, 30, 41, 0.9)),
+    url("../assets/hero.jpg") center / cover no-repeat;
+  padding-top: 70px;
+}
+
+.card-img-top {
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+@media (max-width: 575.98px) {
+  #hero h1 {
+    font-size: 2.35rem;
+  }
+
+  #hero .lead {
+    font-size: 1.05rem;
+  }
+
+  .profile-photo {
+    max-width: 170px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .card,
+.comment-avatar {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.comment-reply {
+  background-color: rgba(1, 195, 142, 0.08);
+  border-left: 3px solid var(--accent-color);
+  border-radius: 6px;
+  padding: 10px 14px;
+}
+
+#contato a {
+    transition: none;
+  }
+
+  .card:hover,
+  #contato a:hover {
+    transform: none;
+  }
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--primary-color);
+  --bs-btn-border-color: var(--primary-color);
+  --bs-btn-hover-bg: var(--accent-color);
+  --bs-btn-hover-border-color: var(--accent-color);
+  --bs-btn-active-bg: var(--accent-color);
+  --bs-btn-active-border-color: var(--accent-color);
+  --bs-btn-disabled-bg: var(--primary-color);
+  --bs-btn-disabled-border-color: var(--primary-color);
+}
+
+.btn-outline-light {
+  --bs-btn-hover-bg: transparent;
+  --bs-btn-hover-border-color: var(--white-color);
+  --bs-btn-active-bg: transparent;
+  --bs-btn-active-border-color: var(--white-color);
+}
+
+.btn-success,
+.btn-outline-success {
+  --bs-btn-color: var(--accent-color);
+  --bs-btn-border-color: var(--accent-color);
+  --bs-btn-hover-color: var(--white-color);
+  --bs-btn-hover-bg: var(--accent-color);
+  --bs-btn-hover-border-color: var(--accent-color);
+  --bs-btn-active-color: var(--white-color);
+  --bs-btn-active-bg: var(--accent-color);
+  --bs-btn-active-border-color: var(--accent-color);
+}
+
+.btn-outline-dark {
+  --bs-btn-color: var(--dark-color);
+  --bs-btn-border-color: var(--dark-color);
+  --bs-btn-hover-color: var(--white-color);
+  --bs-btn-hover-bg: var(--dark-color);
+  --bs-btn-hover-border-color: var(--dark-color);
+  --bs-btn-active-color: var(--white-color);
+  --bs-btn-active-bg: var(--dark-color);
+  --bs-btn-active-border-color: var(--dark-color);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--primary-color);
+  --bs-btn-border-color: var(--primary-color);
+  --bs-btn-hover-color: var(--white-color);
+  --bs-btn-hover-bg: var(--primary-color);
+  --bs-btn-hover-border-color: var(--primary-color);
+  --bs-btn-active-color: var(--white-color);
+  --bs-btn-active-bg: var(--primary-color);
+  --bs-btn-active-border-color: var(--primary-color);
+}
+
+.section-title {
+  position: relative;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+  margin-top: 8px;
+}
+
+.profile-photo {
+  max-width: 220px;
+  border: 5px solid var(--white-color);
+}
+
+.info-list li {
+  margin-bottom: 0.75rem;
+}
+
+.card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.badge-skill {
+  background-color: rgba(19, 45, 228, 0.12);
+  color: var(--primary-color);
+}
+
+.badge-skill-outline {
+  background-color: transparent;
+  color: var(--dark-color);
+  border: 1px solid var(--dark-color);
+}
+
+.section-alt {
+  background-color: var(--light-bg);
+}
+
+#contato a {
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+
+#contato a:hover {
+  transform: translateY(-4px);
+}
