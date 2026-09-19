@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Portfólio pessoal de João Vitor Souza da Silva - Técnico em Desenvolvimento de Sistemas e estudante de ADS">
+  <meta name="theme-color" content="#1a1e29">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <title>João Vitor Souza da Silva | Portfólio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+  <link href="assets/vendor/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/vendor/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preload" as="image" href="assets/hero.jpg" fetchpriority="high">
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbarNav">
+
+  <a href="#principal" class="skip-link">Ir para o conteúdo</a>
+
+  <header>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#hero">JV<span class="text-accent">.</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end align-items-lg-center gap-lg-4" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link active" href="#hero">Início</a></li>
+            <li class="nav-item"><a class="nav-link" href="#sobre">Sobre mim</a></li>
+            <li class="nav-item"><a class="nav-link" href="#formacao">Formação</a></li>
+            <li class="nav-item"><a class="nav-link" href="#experiencias">Experiências</a></li>
+            <li class="nav-item"><a class="nav-link" href="#projetos">Projetos</a></li>
+            <li class="nav-item"><a class="nav-link" href="#comentarios">Depoimentos</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+          </ul>
+          <button id="btn-metricas" class="btn btn-outline-light btn-sm my-2 my-lg-0 text-nowrap d-none"><i class="bi bi-graph-up-arrow me-1" aria-hidden="true"></i>Métricas</button>
+          <button id="btn-admin" class="btn btn-outline-light btn-sm my-2 my-lg-0 text-nowrap d-none"><i class="bi bi-unlock-fill me-1" aria-hidden="true"></i>Sair</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="principal" tabindex="-1">
+
+    <section id="hero" class="d-flex align-items-center text-white">
+      <div class="container text-center py-5">
+        <h1 class="fw-bold mb-3">João Vitor Souza</h1>
+        <p class="lead mb-4">Técnico em Desenvolvimento de Sistemas · Estudante de ADS</p>
+        <div class="hero-ctas">
+          <a href="#projetos" class="btn btn-primary btn-lg">Ver projetos</a>
+          <a href="#contato" class="btn btn-outline-light">Entre em contato</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre" class="py-5">
+      <div class="container">
+        <h2 class="section-title mb-4"><span class="section-field">01</span> · Sobre mim</h2>
+        <div class="row align-items-center">
+          <div class="col-md-4 text-center mb-4 mb-md-0">
+            <img src="assets/foto-perfil.jpg" alt="Foto de perfil" class="img-fluid rounded-circle profile-photo shadow-sm" loading="lazy" decoding="async" width="220" height="220">
+          </div>
+          <div class="col-md-8">
+            <p class="lead">
+              Com conhecimentos em linguagens de programação, banco de dados e desenvolvimento
+              web, busco oportunidades para aplicar meu conhecimento contribuindo ativamente e
+              evoluindo simultaneamente.
+            </p>
+            <ul class="list-unstyled info-list">
+              <li><i class="bi bi-geo-alt-fill text-primary me-2" aria-hidden="true"></i>São Paulo - SP</li>
+              <li><i class="bi bi-person-fill text-primary me-2" aria-hidden="true"></i>18 anos</li>
+              <li><i class="bi bi-mortarboard-fill text-primary me-2" aria-hidden="true"></i>Análise e Desenvolvimento de Sistemas - IFSP Gru</li>
+              <li><i class="bi bi-translate text-primary me-2" aria-hidden="true"></i>Inglês intermediário (leitura técnica)</li>
+            </ul>
+            <h3 class="h6 mt-4 mb-2 fw-bold">Soft skills</h3>
+            <span class="badge badge-skill me-1 mb-1">Organização</span>
+            <span class="badge badge-skill me-1 mb-1">Proatividade</span>
+            <span class="badge badge-skill me-1 mb-1">Aprendizado rápido</span>
+            <span class="badge badge-skill me-1 mb-1">Comunicação</span>
+            <h3 class="h6 mt-4 mb-2 fw-bold">Hard skills</h3>
+            <span class="badge badge-skill-outline me-1 mb-1">Back-end</span>
+            <span class="badge badge-skill-outline me-1 mb-1">Front-end</span>
+            <span class="badge badge-skill-outline me-1 mb-1">Banco de dados</span>
+            <span class="badge badge-skill-outline me-1 mb-1">Ferramentas</span>
+            <div class="mt-4">
+              <a href="assets/CvJoao.pdf" download="Curriculo-Joao-Vitor-Souza.pdf" class="btn btn-primary">
+                <i class="bi bi-download me-2" aria-hidden="true"></i>Baixar currículo em PDF
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="formacao" class="py-5 section-alt">
+      <div class="container">
+        <h2 class="section-title mb-4"><span class="section-field">02</span> · Formação acadêmica</h2>
+        <div>
+          <div class="card border-0 shadow-sm mb-3">
+            <div class="card-body">
+              <h3 class="h5 card-title">Análise e Desenvolvimento de Sistemas</h3>
+              <p class="card-subtitle mb-2 text-muted">IFSP Gru · Segundo semestre (noturno) · Previsão de término: 2028</p>
+              <p class="card-text mb-0">Curso superior em andamento, com foco em desenvolvimento de sistemas, banco de dados e engenharia de software.</p>
+            </div>
+          </div>
+          <div class="card border-0 shadow-sm mb-3">
+            <div class="card-body">
+              <h3 class="h5 card-title">Técnico em Desenvolvimento de Sistemas</h3>
+              <p class="card-subtitle mb-2 text-muted">Etec de Itaquera · Concluído em 2025</p>
+              <p class="card-text mb-0">Formação técnica com ênfase em programação, banco de dados e desenvolvimento web.</p>
+            </div>
+          </div>
+          <div class="card border-0 shadow-sm mb-3">
+            <div class="card-body">
+              <h3 class="h5 card-title">Curso de Inglês - 480h</h3>
+              <p class="card-subtitle mb-2 text-muted">Centro de Estudo de Línguas · Concluído em 2025</p>
+              <p class="card-text mb-0">Inglês intermediário, com leitura técnica e comunicação básica.</p>
+            </div>
+          </div>
+          <div class="card border-0 shadow-sm mb-3">
+            <div class="card-body">
+              <h3 class="h5 card-title">Programador Web - 400h</h3>
+              <p class="card-subtitle mb-2 text-muted">Cedesp · Concluído em 2023</p>
+              <p class="card-text mb-0">Fundamentos de desenvolvimento web com HTML, CSS e JavaScript.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experiencias" class="py-5">
+      <div class="container">
+        <h2 class="section-title mb-4"><span class="section-field">03</span> · Experiências profissionais</h2>
+        <div class="card border-0 shadow-sm mb-3">
+          <div class="card-body">
+            <h3 class="h5 card-title">Estágio em Desenvolvimento Web</h3>
+            <p class="card-subtitle mb-3 text-muted">F4Fly 4Tech · 2023 - 2024</p>
+            <p class="exp-destaque mb-3">Criação e apoio na produção de designs de alta fidelidade para interfaces web.</p>
+            <ul class="card-text mb-0">
+              <li>Colaboração em equipe no desenvolvimento de projetos web.</li>
+              <li>Aplicação prática de conhecimentos técnicos em demandas e situações reais.</li>
+              <li>Suporte na manutenção e atualização de sites.</li>
+              <li>Utilização do WordPress para gerenciamento e desenvolvimento de páginas.</li>
+              <li>Uso do Pacote Office para organização de documentos, relatórios e apoio às atividades do time.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projetos" class="py-5 section-alt">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4">
+          <h2 class="section-title mb-0"><span class="section-field">04</span> · Projetos</h2>
+          <button id="btn-novo-projeto" class="btn btn-primary d-none">
+            <i class="bi bi-plus-lg me-1" aria-hidden="true"></i>Novo projeto
+          </button>
+        </div>
+        <div id="lista-projetos" class="row g-4" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="comentarios" class="py-5">
+      <div class="container">
+        <div class="mb-4">
+          <h2 class="section-title"><span class="section-field">05</span> · Depoimentos</h2>
+          <p class="text-muted mt-3 mb-0">O que dizem sobre meu trabalho:</p>
+        </div>
+        <div id="prova-real" class="row g-4 mb-5" role="group" aria-label="Depoimento verificado"></div>
+        <h3 class="h6 fw-bold mb-1">Demonstração — depoimentos funcionais no seu navegador</h3>
+        <p class="text-muted small mb-4">
+          <i class="bi bi-info-circle me-1" aria-hidden="true"></i>
+          Este quadro não é um mural público: sem servidor, o que você publica fica salvo apenas neste navegador.
+        </p>
+        <div id="lista-comentarios" class="row g-4" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="contato" class="py-5 section-alt">
+      <div class="container text-center">
+        <h2 class="section-title mb-4"><span class="section-field">06</span> · Contato</h2>
+        <p class="lead mb-4">Vamos conversar? Me encontre nos canais abaixo:</p>
+        <div class="row justify-content-center g-3">
+          <div class="col-6 col-md-3">
+            <a href="mailto:contato.ssilvajoao13@gmail.com" class="btn btn-outline-primary w-100">
+              <i class="bi bi-envelope-fill me-2" aria-hidden="true"></i>Email
+            </a>
+          </div>
+          <div class="col-6 col-md-3">
+            <a href="https://wa.me/5511939098656" target="_blank" rel="noopener" class="btn btn-outline-primary w-100">
+              <i class="bi bi-whatsapp me-2" aria-hidden="true"></i>WhatsApp
+            </a>
+          </div>
+          <div class="col-6 col-md-3">
+            <a href="https://www.linkedin.com/in/jo%C3%A3o-vitor-souza-da-silva-8b55122ba/" target="_blank" rel="noopener" class="btn btn-outline-primary w-100">
+              <i class="bi bi-linkedin me-2" aria-hidden="true"></i>LinkedIn
+            </a>
+          </div>
+          <div class="col-6 col-md-3">
+            <a href="https://github.com/joaovitorsouza007" target="_blank" rel="noopener" class="btn btn-outline-primary w-100">
+              <i class="bi bi-github me-2" aria-hidden="true"></i>GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalTitulo" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <form id="form-login" novalidate>
+          <div class="modal-header">
+            <h2 class="modal-title h5" id="loginModalTitulo"><i class="bi bi-lock-fill me-2" aria-hidden="true"></i>Área administrativa</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+          </div>
+          <div class="modal-body">
+            <p class="text-muted small mb-3">Faça login para gerenciar seus projetos.</p>
+            <div class="mb-3">
+              <label for="login-usuario" class="form-label">E-mail</label>
+              <input type="email" class="form-control" id="login-usuario" required autocomplete="username">
+            </div>
+            <div class="mb-3">
+              <label for="login-senha" class="form-label">Senha</label>
+              <input type="password" class="form-control" id="login-senha" required autocomplete="current-password">
+            </div>
+            <div id="login-erro" class="alert alert-danger py-2 small d-none" role="alert">Usuário ou senha inválidos. Confira o e-mail e a senha e tente novamente.</div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Entrar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="projetoModal" tabindex="-1" aria-labelledby="projetoModalTitulo" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <form id="form-projeto">
+          <div class="modal-header">
+            <h2 class="modal-title h5" id="projetoModalTitulo">Novo projeto</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+          </div>
+          <div class="modal-body">
+            <input type="hidden" id="projeto-id">
+            <div class="mb-3">
+              <label for="projeto-titulo" class="form-label">Título <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="projeto-titulo" required maxlength="60">
+            </div>
+            <div class="mb-3">
+              <label for="projeto-descricao" class="form-label">Descrição <span class="text-danger">*</span></label>
+              <textarea class="form-control" id="projeto-descricao" rows="3" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="projeto-tecnologias" class="form-label">Tecnologias <span class="text-danger">*</span> <span class="text-muted small">(separadas por vírgula)</span></label>
+              <input type="text" class="form-control" id="projeto-tecnologias" placeholder="Ex.: React, Node.js, PostgreSQL" required>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="projeto-repositorio" class="form-label">Link do repositório</label>
+                <input type="url" class="form-control" id="projeto-repositorio" placeholder="https://github.com/...">
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="projeto-demo" class="form-label">Link da demo</label>
+                <input type="url" class="form-control" id="projeto-demo" placeholder="https://...">
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="projeto-imagem" class="form-label">Imagem de capa</label>
+              <input type="file" class="form-control" id="projeto-imagem" accept="image/*">
+              <img id="projeto-imagem-preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Prévia da capa" class="img-fluid rounded mt-2 d-none" style="max-height: 180px;">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Salvar projeto</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="respostaModal" tabindex="-1" aria-labelledby="respostaModalTitulo" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <form id="form-resposta">
+          <div class="modal-header">
+            <h2 class="modal-title h5" id="respostaModalTitulo"><i class="bi bi-reply-fill me-2" aria-hidden="true"></i>Responder como João</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+          </div>
+          <div class="modal-body">
+            <input type="hidden" id="resposta-comentario-id">
+            <label for="resposta-texto" class="form-label">Sua resposta</label>
+            <textarea class="form-control" id="resposta-texto" rows="4" required maxlength="400"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Publicar resposta</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="metricasModal" tabindex="-1" aria-labelledby="metricasModalTitulo" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title h5" id="metricasModalTitulo"><i class="bi bi-graph-up-arrow me-2" aria-hidden="true"></i>Métricas do site</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row g-3 mb-4">
+            <div class="col-6">
+              <div class="border rounded p-3 text-center h-100">
+                <div class="metrica-valor text-primary" id="metrica-visitas">0</div>
+                <small class="text-muted"><i class="bi bi-people-fill me-1" aria-hidden="true"></i>Visitas ao site · neste navegador</small>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="border rounded p-3 text-center h-100">
+                <div class="metrica-valor text-primary" id="metrica-cliques">0</div>
+                <small class="text-muted"><i class="bi bi-hand-index-thumb-fill me-1" aria-hidden="true"></i>Cliques em projetos · neste navegador</small>
+              </div>
+            </div>
+          </div>
+          <h3 class="h6 fw-bold mb-3">Projetos mais clicados</h3>
+          <ol id="ranking-projetos" class="list-group list-group-numbered"></ol>
+          <p class="text-muted small mt-3 mb-0">
+            <i class="bi bi-info-circle me-1" aria-hidden="true"></i>Estes números são apenas deste navegador — não há servidor para somar os acessos reais.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-dark text-white text-center py-4">
+    <div class="container">
+      <p class="mb-0">&copy; <span id="ano"></span> João Vitor Souza da Silva. Todos os direitos reservados.</p>
+      <p class="mt-1 mb-0">
+        <a href="#admin" id="admin-link" class="footer-admin-link">Área administrativa</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/vendor/bootstrap.bundle.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/script.js"></script>
+<!-- impeccable-live-start -->
+<script src="http://localhost:8400/live.js?token=ed4e33d6-e110-44fe-8bea-5e4059e52910"></script>
+<!-- impeccable-live-end -->
+</body>
+</html>
